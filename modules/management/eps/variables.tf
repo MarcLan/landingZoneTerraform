@@ -4,9 +4,9 @@ variable "eps" {
     name        = string
     description = optional(string, null)
   }))
-  # default = {
-  #   "vpc" = {
-  #     name = ""
-  #   }
-  # }
+  default = {
+    "vpc" = {
+      name = ""
+    }
+  }
 }
