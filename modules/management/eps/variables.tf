@@ -9,4 +9,9 @@ variable "eps" {
   #     name = ""
   #   }
   # }
+    default = {
+    "vpc" = {
+      name = ""
+    }
+  }
 }
