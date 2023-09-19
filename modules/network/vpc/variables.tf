@@ -1,39 +1,19 @@
+######################################################################
+# VPCs and subnets varialbe in map(object({}))
+######################################################################
+
 variable "vpcs" {
   description = "VPCs configuration"
 
   type = map(object({
-    name        = string
-    cidr        = string
+    vpc_name    = string
+    vpc_cidr    = string
     description = optional(string, null)
     enterprise  = optional(string, "default")
-    subnets = list(object({
-      name        = string
-      cidr        = string
+    subnets = map(object({
+      subnet_name = string
+      subnet_cidr = string
       description = optional(string, null)
     }))
   }))
 }
-
-# variable "subnets" {
-#   type = list(object({
-#     name        = string
-#     cidr        = string
-#     description = optional(string, null)
-#   }))
-# }
-
-# variable "subnets" {
-#   description = "VPCs configuration"
-
-#   type = map(object({
-#     name           = string
-#     description    = optional(string, null)
-#     cidr           = string
-#     ipv6_enabled   = optional(bool, true)
-#     dhcp_enabled   = optional(bool, true)
-#     dns_list       = optional(list(string), null)
-#     tags           = optional(map(string), {})
-#     delete_timeout = optional(string, null)
-#   }))
-
-# }

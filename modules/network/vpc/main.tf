@@ -1,24 +1,38 @@
+######################################################################
+# Create multiple VPCs with multiple subnets
+######################################################################
+
 resource "huaweicloud_vpc" "this" {
   for_each = var.vpcs
-  name = each.value.name
-  cidr = each.value.cidr
-  description = each.value.description
-  enterprise_project_id = each.value.enterprise
+  name     = each.value.vpc_name
+  cidr     = each.value.vpc_cidr
 }
 
 resource "huaweicloud_vpc_subnet" "this" {
   for_each = {
-    for index, v in var.subnets : v.name => v
+    for subnet_value in local.vpc_subnets : "${subnet_value.vpc_key}.${subnet_value.subnet_key}" => subnet_value
   }
+  name       = each.value.subnet_name
+  cidr       = each.value.subnet_cidr
+  gateway_ip = cidrhost(each.value.subnet_cidr, 1)
+  vpc_id     = each.value.vpc_id
+}
 
-  vpc_id = huaweicloud_vpc.this.id
+######################################################################
+# Flatten([]) for akes a list and replaces any elements 
+# that are lists with a flattened sequence of the list contents.
+######################################################################
 
-  name        = each.value.name
-  description = each.value.description
-  cidr        = each.value.cidr
-  gateway_ip  = cidrhost(each.value.cidr, 1)
-  # ipv6_enable = each.value.ipv6_enabled
-  # dhcp_enable = each.value.dhcp_enable
-  # dns_list    = each.value.dns_list
-
+locals {
+  vpc_subnets = flatten([
+    for vpc_key, vpc_value in var.vpcs : [
+      for subnet_key, subnet_value in vpc_value.subnets : {
+        vpc_key     = vpc_key
+        subnet_key  = subnet_key
+        vpc_id      = huaweicloud_vpc.this[vpc_key].id
+        subnet_cidr = subnet_value.subnet_cidr
+        subnet_name = subnet_value.subnet_name
+      }
+    ]
+  ])
 }
