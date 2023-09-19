@@ -4,6 +4,7 @@ module "vpcs" {
     "vpc1" = {
       vpc_name = "vpc-11"
       vpc_cidr = "192.168.0.0/16"
+      enterprise = each.value["dev"]
       subnets = {
         "subnet11" = {
           subnet_name = "subnet-1-1-1"
@@ -30,5 +31,6 @@ module "vpcs" {
         }
       }
     }
+
   }
 }

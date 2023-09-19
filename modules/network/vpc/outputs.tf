@@ -16,3 +16,10 @@ output "subnet_ids" {
   }
 }
 
+output "eps_ids" {
+  description = "Out put Enterprise Projects IDs for other resources"
+  value = {
+    for s, v in data.huaweicloud_enterprise_project.this : s => v.id
+  }
+}
+
