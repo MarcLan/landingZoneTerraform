@@ -1,3 +1,7 @@
+######################################################################
+# Create multiple Log Tank Service gourps with multiple streams
+######################################################################
+
 resource "huaweicloud_lts_group" "this" {
   for_each    = var.lts_groups
   group_name  = each.value.name

@@ -3,9 +3,10 @@
 ######################################################################
 
 resource "huaweicloud_vpc" "this" {
-  for_each = var.vpcs
-  name     = each.value.vpc_name
-  cidr     = each.value.vpc_cidr
+  for_each              = var.vpcs
+  name                  = each.value.vpc_name
+  cidr                  = each.value.vpc_cidr
+  enterprise_project_id = each.value.enterprise
 }
 
 resource "huaweicloud_vpc_subnet" "this" {
