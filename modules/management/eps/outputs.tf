@@ -1,3 +1,7 @@
+######################################################################
+# Output Enterprise Project IDs
+###################################################################### 
+
 output "eps_ids" {
   description = "Output Enterprise Project IDs"
   value = {

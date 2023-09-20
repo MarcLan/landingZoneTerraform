@@ -1,3 +1,7 @@
+######################################################################
+# Enterprise Projects variable
+###################################################################### 
+
 variable "eps" {
   description = "Enterprise Projects configuration"
   type = map(object({
