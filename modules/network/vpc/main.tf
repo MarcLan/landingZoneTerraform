@@ -20,7 +20,7 @@ resource "huaweicloud_vpc_subnet" "this" {
 }
 
 ######################################################################
-# Flatten([]) for akes a list and replaces any elements 
+# Flatten([]) takes a list and replaces any elements 
 # that are lists with a flattened sequence of the list contents.
 ######################################################################
 
