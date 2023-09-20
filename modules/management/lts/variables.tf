@@ -6,10 +6,13 @@ variable "lts" {
   description = "lts configuration"
 
   type = map(object({
-    gourp_name = string
+
+    group_name = string
     group_ttl = string
-    stream = optional(map(object({
+
+    streams = optional(map(object({
       stream_name = string
+
     }))) 
   }))
 }

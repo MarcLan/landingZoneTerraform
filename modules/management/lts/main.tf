@@ -4,13 +4,15 @@
 
 resource "huaweicloud_lts_group" "this" {
   for_each    = var.lts
-  group_name  = each.value.name
-  ttl_in_days = each.value.ttl
+  group_name  = each.value.group_name
+  ttl_in_days = each.value.group_ttl
 }
 
 resource "huaweicloud_lts_stream" "this" {
-  for_each    = var.lts
-  stream_name = each.value.name
+  for_each    = {
+    for stream_value in local.lts : "${stream_value.group_key}.${stream_value.stream_key}" => stream_value
+  }
+  stream_name = each.value.stream_name
   group_id    = each.value.group_id
 }
 
@@ -19,10 +21,10 @@ resource "huaweicloud_lts_stream" "this" {
 # that are lists with a flattened sequence of the list contents.
 ######################################################################
 
-local {
+locals {
   lts = flatten([
     for group_key, group_value in var.lts : [
-      for stream_key, stream_value in group_value.stream : {
+      for stream_key, stream_value in group_value.streams : {
         group_key = group_key
         stream_key = stream_key
         group_id = huaweicloud_lts_group.this[group_key].id
