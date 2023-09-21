@@ -1,5 +1,5 @@
 ######################################################################
-# VPCs and subnets varialbe in map(object({}))
+# VPCs and subnets variablee in map(object({}))
 ######################################################################
 
 variable "vpcs" {
@@ -17,6 +17,26 @@ variable "vpcs" {
       subnet_cidr = string
       description = optional(string, null)
     })))
+
+  }))
+}
+
+
+######################################################################
+# VPC flow log variable
+######################################################################
+
+variable "vpc_flow_log" {
+  description = "VPCs flow log configuration"
+
+  type = map(object({
+
+    name          = string
+    type          = optional(string, "network")
+    resource_id   = string
+    traffic_type  = optional(string, "all")
+    lts_group_id  = string
+    lts_stream_id = string
 
   }))
 }

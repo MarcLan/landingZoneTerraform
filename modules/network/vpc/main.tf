@@ -19,6 +19,7 @@ resource "huaweicloud_vpc_subnet" "this" {
   vpc_id     = each.value.vpc_id
 }
 
+
 ######################################################################
 # Flatten([]) takes a list and replaces any elements 
 # that are lists with a flattened sequence of the list contents.
@@ -36,4 +37,20 @@ locals {
       }
     ]
   ])
+}
+
+
+######################################################################
+# Create VPC flow logs
+######################################################################
+
+resource "huaweicloud_vpc_flow_log" "this" {
+
+  for_each      = var.vpc_flow_log
+  name          = each.value.name
+  resource_type = each.value.type
+  resource_id   = each.value.resource_id
+  log_group_id  = each.value.lts_group_id
+  log_stream_id = each.value.lts_stream_id
+
 }
