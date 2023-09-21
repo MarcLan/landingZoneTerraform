@@ -43,6 +43,15 @@ module "vpcs" {
       lts_group_id  = module.lts.lts_group_ids["group1"]
       lts_stream_id = module.lts.lts_stream_ids["group1.stream11"]
     }
+
+    "vpcFlowLog2" = {
+      name          = "vpc-flow-log-2"
+      resource_type = "network"
+      resource_id   = module.vpcs.subnet_ids["vpc1.subnet12"]
+      lts_group_id  = module.lts.lts_group_ids["group1"]
+      lts_stream_id = module.lts.lts_stream_ids["group1.stream12"]
+    }
+
   }
 
 }
