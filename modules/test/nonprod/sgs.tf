@@ -9,7 +9,7 @@ module "sgs" {
           direction        = "ingress"
           action           = "allow"
           ethertype        = "IPv4"
-          ports            = "80"
+          ports            = "80,22"
           protocol         = "tcp"
           priority         = "1"
           remote_ip_prefix = "0.0.0.0/0"
