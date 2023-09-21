@@ -17,3 +17,7 @@ output "lts_group_ids" {
 output "lts_stream_ids" {
   value = module.lts.lts_stream_ids
 }
+
+output "sg_ids" {
+  value = module.sgs.sg_ids
+}

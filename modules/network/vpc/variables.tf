@@ -1,9 +1,9 @@
 ######################################################################
-# VPCs and subnets variablee in map(object({}))
+# VPCs and subnets variable in map(object({}))
 ######################################################################
 
 variable "vpcs" {
-  description = "VPCs configuration"
+  description = "VPCs variables"
 
   type = map(object({
 
@@ -27,7 +27,7 @@ variable "vpcs" {
 ######################################################################
 
 variable "vpc_flow_log" {
-  description = "VPCs flow log configuration"
+  description = "VPCs flow log variables"
 
   type = map(object({
 
@@ -40,3 +40,9 @@ variable "vpc_flow_log" {
 
   }))
 }
+
+
+######################################################################
+# Security   variable
+######################################################################
+
