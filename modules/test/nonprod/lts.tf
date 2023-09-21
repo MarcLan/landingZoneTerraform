@@ -3,7 +3,7 @@ module "lts" {
   lts = {
 
     "group1" = {
-      group_name = "lts-1"
+      group_name = "group-1"
       group_ttl  = "30"
 
       streams = {
@@ -17,7 +17,7 @@ module "lts" {
     }
 
     "group2" = {
-      group_name = "lts-2"
+      group_name = "group-2"
       group_ttl  = "30"
 
       streams = {
