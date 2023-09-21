@@ -45,7 +45,6 @@ locals {
 ######################################################################
 
 resource "huaweicloud_vpc_flow_log" "this" {
-
   for_each      = var.vpc_flow_log
   name          = each.value.name
   resource_type = each.value.type
@@ -53,4 +52,16 @@ resource "huaweicloud_vpc_flow_log" "this" {
   log_group_id  = each.value.lts_group_id
   log_stream_id = each.value.lts_stream_id
 
+}
+
+
+######################################################################
+# Create VPC Peering
+######################################################################
+
+resource "huaweicloud_vpc_peering_connection" "this" {
+  for_each    = var.vpc_peering
+  name        = each.value.name
+  vpc_id      = each.value.vpc_id
+  peer_vpc_id = each.value.peer_vpc_id
 }

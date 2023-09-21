@@ -54,4 +54,13 @@ module "vpcs" {
 
   }
 
+  vpc_peering = {
+    "peering1" = {
+      name        = "vpc1-to-vpc2"
+      vpc_id      = module.vpcs.vpc_ids["vpc1"]
+      peer_vpc_id = module.vpcs.vpc_ids["vpc2"]
+    }
+  }
+
+
 }

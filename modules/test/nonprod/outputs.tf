@@ -21,3 +21,7 @@ output "lts_stream_ids" {
 output "sg_ids" {
   value = module.sgs.sg_ids
 }
+
+output "vpc_peering_ids" {
+  value = module.vpcs.vpc_peering_ids
+}

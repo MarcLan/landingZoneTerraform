@@ -43,6 +43,17 @@ variable "vpc_flow_log" {
 
 
 ######################################################################
-# Security   variable
+# VPC Peering variable
 ######################################################################
 
+variable "vpc_peering" {
+  description = "VPC peering variables"
+
+  type = map(object({
+
+    name        = string
+    vpc_id      = string
+    peer_vpc_id = string
+    
+  }))
+}
