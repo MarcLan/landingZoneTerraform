@@ -3,7 +3,7 @@
 ######################################################################
 
 variable "vpcs" {
-  description = "VPCs variables"
+  description = "VPCs variable"
 
   type = map(object({
 
@@ -27,7 +27,7 @@ variable "vpcs" {
 ######################################################################
 
 variable "vpc_flow_log" {
-  description = "VPCs flow log variables"
+  description = "VPCs flow log variable"
 
   type = map(object({
 
@@ -47,13 +47,29 @@ variable "vpc_flow_log" {
 ######################################################################
 
 variable "vpc_peering" {
-  description = "VPC peering variables"
+  description = "VPC peering variable"
 
   type = map(object({
 
     name        = string
     vpc_id      = string
     peer_vpc_id = string
-    
+
+  }))
+}
+
+
+######################################################################
+# Route variable
+######################################################################
+
+variable "route" {
+  description = "Multiple routes variable"
+
+  type = map(object({
+    vpc_id      = string
+    destination = string
+    type        = string
+    nexthop     = string
   }))
 }

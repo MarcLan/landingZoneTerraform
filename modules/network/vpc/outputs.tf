@@ -9,6 +9,13 @@ output "vpc_ids" {
   }
 }
 
+output "vpc_cidr" {
+  description = "Out put VPCs IDs for other resources"
+  value = {
+    for k, v in huaweicloud_vpc.this : k => v.cidr
+  }
+}
+
 output "subnet_ids" {
   description = "Out put subnets IDs for other resources"
   value = {

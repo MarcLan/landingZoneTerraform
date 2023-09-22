@@ -62,5 +62,22 @@ module "vpcs" {
     }
   }
 
+  route = {
+  
+    "route1" = {
+      vpc_id      = module.vpcs.vpc_ids["vpc1"]
+      destination = module.vpcs.vpc_cidr["vpc2"]
+      type        = "peering"
+      nexthop     = module.vpcs.vpc_peering_ids["peering1"]
+    }
+
+    "route2" = {
+      vpc_id      = module.vpcs.vpc_ids["vpc2"]
+      destination = module.vpcs.vpc_cidr["vpc1"]
+      type        = "peering"
+      nexthop     = module.vpcs.vpc_peering_ids["peering1"]
+    }
+
+  }
 
 }

@@ -65,3 +65,16 @@ resource "huaweicloud_vpc_peering_connection" "this" {
   vpc_id      = each.value.vpc_id
   peer_vpc_id = each.value.peer_vpc_id
 }
+
+
+######################################################################
+# Create Route
+######################################################################
+
+resource "huaweicloud_vpc_route" "this" {
+  for_each    = var.route
+  vpc_id      = each.value.vpc_id
+  destination = each.value.destination
+  type        = each.value.type
+  nexthop     = each.value.nexthop
+}
