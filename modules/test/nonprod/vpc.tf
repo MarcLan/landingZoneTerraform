@@ -4,7 +4,7 @@ module "vpcs" {
     "vpc1" = {
       vpc_name   = "vpc-1"
       vpc_cidr   = "192.168.0.0/16"
-      enterprise = module.eps.eps_ids["sit"]
+      enterprise = module.eps.eps_ids["nonprod"]
       subnets = {
         "subnet11" = {
           subnet_name = "subnet-1-1"
@@ -20,7 +20,7 @@ module "vpcs" {
     "vpc2" = {
       vpc_name   = "vpc-2"
       vpc_cidr   = "172.16.0.0/16"
-      enterprise = module.eps.eps_ids["sit"]
+      enterprise = module.eps.eps_ids["nonprod"]
       subnets = {
         "subnet21" = {
           subnet_name = "subnet-2-1"

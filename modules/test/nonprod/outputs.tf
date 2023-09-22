@@ -25,3 +25,11 @@ output "sg_ids" {
 output "vpc_peering_ids" {
   value = module.vpcs.vpc_peering_ids
 }
+
+output "az" {
+  value = module.ecs.az
+}
+
+output "flavor_id" {
+  value = module.ecs.flavor
+}
