@@ -15,6 +15,7 @@ resource "huaweicloud_compute_instance" "this" {
   image_id           = data.huaweicloud_images_image.myimage.id
   flavor_id          = var.flavor_name
   security_group_ids = var.security_group
+  enterprise_project_id = var.enterprise
 
   network {
     uuid = var.subnet
