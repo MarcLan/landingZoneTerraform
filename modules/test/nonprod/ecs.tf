@@ -23,16 +23,16 @@
 #   }
 # }
 
-module "ecs_count" {
-  source = "../../compute/ecsCount"
+# module "ecs_count" {
+#   source = "../../compute/ecsCount"
 
-  enterprise     = module.eps.eps_ids["nonprod"]
-  quantity       = 3
-  name           = "ecs-1"
-  password       = "Ly7142325@"
-  image_name     = "CentOS 8.0 64bit"
-  flavor_name    = "s7n.small.1"
-  subnet         = module.vpcs.subnet_ids["vpc1.subnet11"]
-  security_group = ["${module.sgs.sg_ids["sg1"]}"]
+#   enterprise     = module.eps.eps_ids["nonprod"]
+#   quantity       = 3
+#   name           = "ecs-1"
+#   password       = "Ly7142325@"
+#   image_name     = "CentOS 8.0 64bit"
+#   flavor_name    = "s7n.small.1"
+#   subnet         = module.vpcs.subnet_ids["vpc1.subnet11"]
+#   security_group = ["${module.sgs.sg_ids["sg1"]}"]
 
-}
+# }

@@ -26,10 +26,11 @@ output "vpc_peering_ids" {
   value = module.vpcs.vpc_peering_ids
 }
 
-# output "az" {
-#   value = module.ecs.az
-# }
 
-# output "flavor_id" {
-#   value = module.ecs.flavor
-# }
+output "obs_name" {
+  value = module.obs.obs_name
+}
+
+output "cts_name" {
+  value = module.cts.cts_name
+}
