@@ -4,7 +4,7 @@
 
 variable "sgs" {
   description = "Security Groups variables"
-
+  default = {}
   type = map(object({
 
     name        = string
