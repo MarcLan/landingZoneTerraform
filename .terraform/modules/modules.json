@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"eps","Source":"../../modules/management/eps","Dir":""},{"Key":"eps-uab","Source":"./eps.tf","Dir":"eps.tf"},{"Key":"vpcs","Source":"../../modules/network/vpc","Dir":""}]}

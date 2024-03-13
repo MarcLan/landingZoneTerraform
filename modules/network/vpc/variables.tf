@@ -4,7 +4,7 @@
 
 variable "vpcs" {
   description = "VPCs variable"
-
+  default = {}
   type = map(object({
 
     vpc_name    = string
@@ -28,6 +28,7 @@ variable "vpcs" {
 
 variable "vpc_flow_log" {
   description = "VPCs flow log variable"
+  default = {}
 
   type = map(object({
 
@@ -48,7 +49,7 @@ variable "vpc_flow_log" {
 
 variable "vpc_peering" {
   description = "VPC peering variable"
-
+  default = {}
   type = map(object({
 
     name        = string
@@ -65,7 +66,7 @@ variable "vpc_peering" {
 
 variable "route" {
   description = "Multiple routes variable"
-
+  default = {}
   type = map(object({
     vpc_id      = string
     destination = string
