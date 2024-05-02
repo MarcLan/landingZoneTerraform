@@ -11,6 +11,6 @@ terraform {
 
 provider "huaweicloud" {
   region = "ap-southeast-2"
-  access_key = "SGJXXLWDW8E1V4GYQI73"
-  secret_key = "pR03dkNMUI0XS21cmXH6dj9mEWP4RZlH52VMAO3q"
+  access_key = ""
+  secret_key = ""
 }
